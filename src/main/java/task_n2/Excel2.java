@@ -1,11 +1,14 @@
-package excel;
+package task_n2;
 
-import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 import java.io.FileOutputStream;
 import java.sql.*;
 
-public class Excel {
+public class Excel2 {
 
     public static void ExportToExcel(String tableName) throws Exception {
 
