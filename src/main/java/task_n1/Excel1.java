@@ -9,7 +9,7 @@ public class Excel1 {
 
     public static void ExportToExcel(String tableName) throws Exception {
 
-        try (Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "CHIFendse", "CHIFendse");
+        try (Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "86424822");
              Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery("SELECT * FROM " + tableName)) {
 
