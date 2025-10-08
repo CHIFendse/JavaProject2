@@ -20,7 +20,7 @@ public class StartProgram {
                     task_n2.Task_n2.start();
                     break;
                 case 3:
-                    //task3
+                    task_n3.Task_n3.start();
                     break;
                 case 4:
                     //task4
