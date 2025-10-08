@@ -4,14 +4,13 @@ import java.sql.*;
 import java.util.Scanner;
 
 public class PostgreSQL1 {
-    protected static Scanner scanner = new Scanner(System.in);
+    final protected static Scanner scanner = new Scanner(System.in);
     protected static String postgreSQLURL = "jdbc:postgresql://localhost:5432/postgres";
     protected static Connection con;
-    protected static String zap = "'.,?1234567890!@#$%^&*(){}[]+=-_;:``~№|";
 
     public static void showAllTables() {
         try {
-            con = DriverManager.getConnection(postgreSQLURL, "postgres", "86424822");
+            con = DriverManager.getConnection(postgreSQLURL, "CHIFendse", "CHIFendse");
             DatabaseMetaData metaData = con.getMetaData();
             ResultSet tables = metaData.getTables(null, null, "%", new String[]{"TABLE"});
 
@@ -36,10 +35,10 @@ public class PostgreSQL1 {
     }
     public static void createTable1() {
         try {
-            con = DriverManager.getConnection(postgreSQLURL, "postgres", "86424822");
+            con = DriverManager.getConnection(postgreSQLURL, "CHIFendse", "CHIFendse");
             System.out.println("--- СОЗДАНИЕ НОВОЙ ТАБЛИЦЫ ---");
             System.out.print("Введите имя таблицы: ");
-            String tableName = PostgreSQL1.scanner.nextLine().replaceAll("\\s+", "");
+            String tableName = scanner.nextLine();
             Statement stmt = con.createStatement();
             String tab = "CREATE TABLE IF NOT EXISTS " + tableName + " (Result VARCHAR(255))";
             stmt.executeUpdate(tab);
@@ -49,15 +48,15 @@ public class PostgreSQL1 {
 
 
         } catch (SQLException e) {
-            System.out.println("Ошибка при создании таблицы: " + e.getMessage());
+            System.out.println("Такое имя не подходит!");
         }
     }
     public static void DataWriteDown(String data) {
         System.out.print("Введите имя таблицы для записи: ");
-        Object table = PostgreSQL1.scanner.nextLine();
+        Object table = scanner.nextLine();
 
         try {
-            con = DriverManager.getConnection(postgreSQLURL, "postgres", "86424822");
+            con = DriverManager.getConnection(postgreSQLURL, "CHIFendse", "CHIFendse");
             String tab1 = "INSERT INTO " + table + " (Result) VALUES (?)";
             PreparedStatement stmt1 = con.prepareStatement(tab1);
             stmt1.setString(1, data);

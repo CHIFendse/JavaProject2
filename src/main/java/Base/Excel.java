@@ -1,14 +1,11 @@
-package task_n2;
+package Base;
 
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
 import java.io.FileOutputStream;
 import java.sql.*;
 
-public class Excel2 {
+public class Excel {
 
     public static void ExportToExcel(String tableName) throws Exception {
 
@@ -52,7 +49,7 @@ public class Excel2 {
 
             System.out.println("Таблица '" + tableName + "' успешно экспортирована в: " + filePath);
         }catch(Exception e){
-            System.out.println("");
+            System.out.println("Такой таблицы не существует");
         }
     }
 }
